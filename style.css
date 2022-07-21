@@ -1,0 +1,149 @@
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    background-color:rgb(217,85,80);
+}
+
+.head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+header{
+    /* background-color: blue; */
+    display: flex;;
+    color:white;
+    padding:1em 0;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    margin-bottom: 2em;
+    justify-content: space-between;
+    min-width: 560px;
+    height: 20px;
+    padding-bottom: 30px;
+    
+}
+.header-title{
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    min-width: 100px;
+    
+}
+nav{
+    
+    display: flex;
+    justify-content: space-around;
+    padding:0px 30px;
+    padding-right: 0%;
+}
+button.Navbar{
+    
+    color:white;
+    margin: 0 5px;
+    padding:5px 10px;
+    border:1px solid silver ;    
+    border-radius: 10px;
+    background: rgba(255,255,255,0.2) ;
+
+}
+.timer-content{
+    
+    /* min-width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.timer-container{
+    min-width: 500px;
+    padding:5px;
+    padding-top:20px;
+    margin-top: 10px;
+    background-color:rgba(255,255,255,0.1);
+    border-radius: 10px;
+    box-shadow:0.7px 3.2px rgba(0, 0, 9, 0.093);
+    min-height: 20vh;
+}
+
+.tab-list{
+    display:flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+tab-item.active{
+    background-color:rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+tab-item{
+    display:inline-block;
+    padding:7px 10px;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+}
+.tab-item-content{
+    display:none;
+    text-align: center;
+}
+.tab-item-content.active{
+    display: block;
+}
+.time{
+    font-size: 120px;
+    font-weight: bolder;
+    padding:14px 0px;
+    color:rgb(249, 248, 248);
+    margin:0;
+}
+
+.Start{
+    margin-bottom: 20px;
+    font-size:20px;
+    padding:0.6em 1.8em;
+    border:2px solid gray;
+    border-radius: 10px;
+    box-shadow:rgba(0,0,9,0.093);
+}
+
+
+.focus{
+    text-align: center;
+    margin-top:30px;
+    color: white;
+    font-size:16px;
+}
+
+.number{
+    margin-bottom:10px;
+    opacity:0.6;
+    font-size: 16px;
+}
+
+.body-content{
+    font-size:19px;
+    display: none;
+    font-weight: 500;
+}
+
+.body-content.active{
+    display: block;
+}
+
+button:hover{
+    box-shadow:4px 5px rgba(0, 0, 9, 0.093);
+    background-color: rgb(212, 230, 203);
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+tab-item:hover{
+    background-color: silver;
+    box-shadow:4px 5px rgba(0, 0, 9, 0.093);
+    cursor:pointer;
+    color:black;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+

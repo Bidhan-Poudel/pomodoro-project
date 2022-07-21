@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pomodoro Timer Online -Pomodoro</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="./promodoro-project.js" defer></script>
+</head>
+<body>
+    <section class="head">
+
+        <header>
+            <!-- <section class="heading"> -->
+                
+                <div class="header-title">Pomofocus</div>
+                <nav>
+                    <span>  <button class="Navbar">Report</button></span>
+                    <span><button class="Navbar">Setting</button></span>
+                    <span><button class="Navbar">Login</button></span>
+                </nav>
+                <!-- </section> -->
+        </header>
+    </section>
+    <div class="body">
+
+        <div class="timer-content">
+            <section class="timer-container">
+            <div class="tab-list">
+                <tab-item id="Pomodoro" class="active">Pomodoro</tab-item>
+                <tab-item id="Short-Break" >Short Break</tab-item>
+                <tab-item id="Long-Break">Long Break</tab-item>
+            </div>
+            <div class="tab-content">
+                <div class="tab-item-content active" id="pomodoro-content">
+                    <div class="time" id="pomodoro-time">25:00</div>
+                    <button class="Start" id="pomodoroButton">START</button>
+                </div>
+                <div class="tab-item-content  " id="shortbreak-content">
+                    <div class="time" id="shortbreak-time">5:00</div>
+                    <button class="Start" id="shortbreakButton">START</button>
+                </div>
+                <div class="tab-item-content" id="longbreak-content">
+                    <div class="time" id="longbreak-time">15:00</div>
+                    <button class="Start" id="longbreakButton">START</button>
+                </div>
+            </div>
+            </section>
+        </div>
+         <div class="focus">
+            <div class="number">#1</div>
+            <div class="body-content active" id="focusContent">Time to Focus!</div>
+            <div class="body-content" id="breakContent"=> Time for a break! </div>
+        </div>
+    </div>
+    
+</body>
+</html>
