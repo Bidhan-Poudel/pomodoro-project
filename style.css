@@ -107,6 +107,16 @@ tab-item{
     box-shadow:rgba(0,0,9,0.093);
 }
 
+.Stop{
+    display: none;
+    margin-bottom: 20px;
+    font-size:20px;
+    padding:0.6em 1.8em;
+    border:2px solid gray;
+    border-radius: 10px;
+    box-shadow:rgba(0,0,9,0.093);
+}
+
 
 .focus{
     text-align: center;
@@ -130,6 +140,7 @@ tab-item{
 .body-content.active{
     display: block;
 }
+
 
 button:hover{
     box-shadow:4px 5px rgba(0, 0, 9, 0.093);

@@ -4,21 +4,38 @@
 
 //1. Select all tabs from tab list
 const time= document.querySelector(".time");
-// console.log(time);
 const body=document.querySelector("body");
+
+
 const pomodoroTab = document.getElementById("Pomodoro");
 const shortBreakTab=document.getElementById("Short-Break");
 const longBreakTab=document.getElementById("Long-Break");
+
+
 const pomodoroTabContent=document.getElementById("pomodoro-content");
 const shortBreakTabContent=document.getElementById("shortbreak-content");
 const longBreakTabContent=document.getElementById("longbreak-content");
-// console.log(shortBreakTabContent);
+
+
 const timerContainer=document.querySelector('.timer-container');
 
 const focusContent=document.getElementById('focusContent');
 const breakContent=document.getElementById('breakContent');
 
 
+const pomodoroTime= document.getElementById("pomodoro-time");
+const shortbreakTime= document.getElementById("shortbreak-time");
+const longbreakTime= document.getElementById("longbreak-time");
+
+
+const pomodoroButtonStart=document.getElementById("pomodoroButtonStart");
+const pomodoroButtonStop=document.getElementById("pomodoroButtonStop");
+
+const shortbreakButtonStart=document.getElementById("shortbreakButtonStart");
+const shortbreakButtonStop=document.getElementById("shortbreakButtonStop");
+
+const longbreakButtonStart=document.getElementById("longbreakButtonStart");
+const longbreakButtonStop=document.getElementById("longbreakButtonStop");
 // console.log(timerContainer);
 
 
@@ -80,26 +97,23 @@ pomodoroTab.addEventListener("click", function(){
         timerContainer.style.backgroundColor='rgba(' + [255,255,255,0.1].join(',') + ')';
         body.style.transition="background-color 0.5s ease-in-out 0s"
 
-    
+        
     })
-    // 'rgb(' + [69,124,163].join(',') + ')';
-
-// console.log(longBreakTab);
-
-// setInterval(function(){
-//     console.log(new Date().toISOString())
-// }, 1000)
 
 
-// console.log(Date.now());
+
+    let timerInterval;
+    let secondsLeft;
+    
+
 
 //Timer to develop
-function timer(seconds , arg, btn){
+function startTimer(seconds , arg, srtbtn, stobtn){
     const now = Date.now();
     const then= now + (seconds*1000);
     
-    const timerInterval=setInterval(function(){
-        const secondsLeft=Math.round((then-Date.now())/1000);
+    timerInterval=setInterval(function(){
+        secondsLeft= Math.round((then-Date.now())/1000);
         displayTime(secondsLeft, arg);
 
         if(secondsLeft <1){
@@ -108,12 +122,28 @@ function timer(seconds , arg, btn){
 
         },1000);
     
-
-
-
+        stopTimer(seconds,arg,srtbtn,stobtn);
+        
+        
+        // srtbtn.addEventListener("click",timer(secondsLeft,arg,srtbtn,stobtn));
+        
+        
+        
+    }
+    
+    
+    function stopTimer(seconds,arg,srtbtn,stobtn){
+    const stopInterval=function(){
+        clearInterval(timerInterval);
+        stobtn.addEventListener('click',stopInterval);
+        srtbtn.style.display='inline';
+        stobtn.style.display='none';
+        // srtbtn.addEventListener("click",startTimer(seconds,arg,srtbtn,stobtn));
+        // srtbtn.addEventListener('click',startTimer(seconds,arg,srtbtn,stobtn));
+    }
+    stobtn.addEventListener("click", stopInterval);
 
 }
-
 
 
 function displayTime(seconds,arg){
@@ -124,44 +154,52 @@ function displayTime(seconds,arg){
   
 }
 
-const pomodoroTime= document.getElementById("pomodoro-time");
-const shortbreakTime= document.getElementById("shortbreak-time");
-const longbreakTime= document.getElementById("longbreak-time");
-const pomodoroButton=document.getElementById("pomodoroButton");
 
-
-const shortbreakButton=document.getElementById("shortbreakButton");
-const longbreakButton=document.getElementById("longbreakButton");
-
-// displayTime(402, pomodoroTime);
-
-// timer(100);
+function play() {
+    var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3');
+    // audio.play();
+  }
 
 
 
-pomodoroButton.addEventListener("click",function(){
-    const pomodoroTotalTime= 1500;
-    // let time=pomodoroTotalTime;
-    timer(pomodoroTotalTime,pomodoroTime,pomodoroButton);
+pomodoroButtonStart.addEventListener("click",function(){
+    const pomodoroTotalTime= pomodoroButtonStart.secondsLeft ? pomodoroButtonStart.secondsLeft :1500;
+    startTimer(pomodoroTotalTime,pomodoroTime,pomodoroButtonStart,pomodoroButtonStop);
+    pomodoroButtonStart.style.display="none"
+    pomodoroButtonStop.style.display='inline';
+    
+    })
+    pomodoroButtonStop.addEventListener("click",function(){
+        stopTimer(secondsLeft,pomodoroTime,pomodoroButtonStart,pomodoroButtonStop);
+        
+    })
 
+
+shortbreakButtonStart.addEventListener("click",function(){
+    
+    const shortbreakTotalTime= shortbreakButtonStart.secondsLeft ? shortbreakButtonStart.secondsLeft :300;
+    startTimer(shortbreakTotalTime,shortbreakTime,shortbreakButtonStart,shortbreakButtonStop);
+    shortbreakButtonStart.style.display="none"
+    shortbreakButtonStop.style.display='inline';
+    
 });
 
-shortbreakButton.addEventListener("click",function(){
-    const shortbreakTotalTime= 300;
-    // let time=shortbreakTime;
-    timer(shortbreakTotalTime,shortbreakTime,shortbreakButton);
+shortbreakButtonStop.addEventListener("click",function(){
+    stopTimer(shortbreakButtonStop.secondsLeft,shortbreakTime,shortbreakButtonStart,shortbreakButtonStop);
+    
+})
 
+longbreakButtonStart.addEventListener("click",function(){
+
+    const longbreakTotalTime= longbreakButtonStart.secondsLeft ? longbreakButtonStart.secondsLeft :900;
+    startTimer(longbreakTotalTime,longbreakTime,longbreakButtonStart,longbreakButtonStart);
+    longbreakButtonStart.style.display="none"
+    longbreakButtonStop.style.display='inline';
+    
 });
 
-longbreakButton.addEventListener("click",function(){
-    const longbreakTotalTime= 900;
-    // let time=longbreakTime;  
-    timer(longbreakTotalTime,longbreakTime,longbreakButton);
 
-});
-
-
-
-
-
-
+longbreakButtonStart.addEventListener("click",function(){
+    stopTimer(secondsLeft,longbreakTime,longbreakButtonStart,longbreakButtonStop);
+    
+})
